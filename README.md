@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [About the Project](#about-the-project)
+- [Technologies Used](#technologies-used)
+- [Contributors](#contributors)
+- [Learning Goals](#learning-goals)
+- [Project Evolution](#project-evolution)
+- [Project Reflections] (##project-reflections)
+- [Organizational Resources](#organizational-resources)
+- [Set Up](#set-up)
+- [Operating Instructions](#operating-instructions)
+- [Application in Action](#application-in-action)
+- [Future Goals](#future-goals)
+- [Testing](#testing)
+- [Extensions Completed](#extensions-completed)
 
-## Available Scripts
+## About the Project 
 
-In the project directory, you can run:
+Rancid Tomatillos is a web application that...
 
-### `npm start`
+The details of this project are outlined in the [project spec](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. JavaScript
+1. React.js
+1. Router
+1. Cypress
+1. Aria
+1. Lighthouse
+1. WAVE
+1. Figma
+1. Git & Github
+1. Postman
+1. HTML
+1. CSS
+1. SASS
+1. Mocha and Chai
+1. Webpack
+1. NPM
+## Contributors
 
-### `npm test`
+* [Eli Davidson](https://github.com/elleshadow)
+* [Nathan Hodnett](https://github.com/nhodnett)
+* [Team Member 3]()
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Project Manger
+* [Kayla Gordon](https://github.com/
+## Learning Goals
 
-### `npm run build`
+* All:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Eli Davidson:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Nathan Hodnett:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Team Member 3:
 
-### `npm run eject`
+## Project Evolution
+>how did the project change over time?
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Reflections 
+>what didn't work, what did we learn?
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Eli Davidson:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Nathan Hodnett:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Team Member 3:
 
-## Learn More
+## Extensions 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Not attempted
+### Completed
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.
+2.
+3.
 
-### Code Splitting
+### Future Goals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Organizational Resources
 
-### Analyzing the Bundle Size
+* [Project board](https://github.com/nhodnett/rancid-tomatillos/projects/1)
+* [Figma](https://www.figma.com/file/B5YF2KSCHALrpK1mAkaCVu/Component-architecture?node-id=0%3A1)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Set Up
 
-### Making a Progressive Web App
+## Operation Instructions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Once in the application you will see many options. Each step will outline a feature you can use.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Application in Action
 
-### Deployment
+This is a basic gif demonstration of feature. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Testing
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cypress
