@@ -10,14 +10,13 @@ class App extends Component{
   constructor() {
     super();
     this.state = {
-      movieSelected: true,
+      movieSelected: false,
       movieDetails: movieDetails,
       movies: []
     }
   }
 
   componentDidMount = () => {
-    //console.log(movies)
     this.setState({ movies: moviesData.movies })
   }
   //
@@ -30,16 +29,23 @@ class App extends Component{
   render() {
     return (
       <main>
-        <Navbar />
+        <Navbar 
 
-        {this.state.movieSelected ? <MovieDetails movie={this.state.movieDetails}/> : <MoviesContainer movies={this.state.movies}/>}
+        />
+
+        {this.state.movieSelected ? 
+          <MovieDetails 
+            movie={this.state.movieDetails}
+          /> 
+        : 
+          <MoviesContainer 
+            movies={this.state.movies}
+          />
+        }
       </main>
     )
   }
 
 }
-
-
-
 
 export default App;
