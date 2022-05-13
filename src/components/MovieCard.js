@@ -6,7 +6,7 @@ const MovieCard = (props) => {
   //console.log(id, poster_path, title);
     return(
       <div className='Card' key={id}>
-        <img src={poster_path}/>
+        <img className='poster' src={poster_path}/>
         <p>{title}</p>
       </div>
     )

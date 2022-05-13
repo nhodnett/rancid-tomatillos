@@ -5,9 +5,12 @@ import '../styles/MoviesContainer.css';
 const MoviesContainer = (props) => {
   const {movies} = props;
   //console.log(movies)
+  const movieCards = movies.map(movie => {
+    return <MovieCard movie={movie}/>
+  })
   return (
     <div className='MoviesContainer'>
-      <MovieCard movie={movies[0]}/>
+      {movieCards}
     </div>
   )
 }
