@@ -1,0 +1,15 @@
+.Card {
+  width: 100%;
+  background-color: #242322;
+}
+
+.poster {
+  width: 100%;
+}
+
+.movieTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 20px;
+  color: white;
+}
