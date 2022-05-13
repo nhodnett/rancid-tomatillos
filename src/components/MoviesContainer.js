@@ -4,13 +4,15 @@ import '../styles/MoviesContainer.css';
 
 const MoviesContainer = (props) => {
   const {
-    movies
+    movies,
+    handleClick
   } = props;
 
   const movieCards = movies.map(movie => {
     return <MovieCard 
     key={movie.id} 
     movie={movie}
+    handleClick={handleClick}
     />
   })
   return (

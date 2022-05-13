@@ -10,10 +10,18 @@ class App extends Component{
   constructor() {
     super();
     this.state = {
-      movieSelected: false,
+      movieSelected: 0,
       movieDetails: movieDetails,
       movies: []
     }
+  }
+
+  handleClick = (id) => {
+    // console.log(id)
+    this.setState({
+      movieSelected: id
+    })
+    // console.log(this.state)
   }
 
   componentDidMount = () => {
@@ -30,7 +38,8 @@ class App extends Component{
     return (
       <main>
         <Navbar 
-
+            movieSelected={!!this.state.movieSelected}
+            handleClick={this.handleClick}
         />
 
         {this.state.movieSelected ? 
@@ -39,6 +48,7 @@ class App extends Component{
           /> 
         : 
           <MoviesContainer 
+            handleClick={this.handleClick}
             movies={this.state.movies}
           />
         }
