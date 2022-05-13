@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar'
 import MoviesContainer from './components/MoviesContainer'
 import './App.css';
+import moviesData from './data/movieData';
 
 class App extends Component{
   constructor() {
     super();
-    this.state = {}
+    this.state = {
+      movies: moviesData.movies
+    }
   }
 
-
-
   // componentDidMount = () => {
+  //   //console.log(movies)
+  //   this.setState({ movies: moviesData.movies })
   // }
   //
   // componentDidUpdate = () => {
@@ -24,7 +27,7 @@ class App extends Component{
     return (
       <main>
         <Navbar />
-        <MoviesContainer />
+        <MoviesContainer movies={this.state.movies}/>
       </main>
     )
   }
