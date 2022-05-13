@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Navbar from './components/Navbar'
+import MoviesContainer from './components/MoviesContainer'
 import './App.css';
 
 class App extends Component{
   constructor() {
-    Super();
+    super();
     this.state = {}
   }
 
@@ -20,8 +22,10 @@ class App extends Component{
 
   render() {
     return (
-      <Navbar />
-      <MoviesContainer />
+      <main>
+        <Navbar />
+        <MoviesContainer />
+      </main>
     )
   }
 
