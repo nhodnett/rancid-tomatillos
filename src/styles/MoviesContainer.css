@@ -1,6 +1,7 @@
 .MoviesContainer {
-  background-color: yellow;
+  background-color: black;
   display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  padding-left: 20px;
 }

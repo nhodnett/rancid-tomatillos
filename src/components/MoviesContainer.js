@@ -6,7 +6,7 @@ const MoviesContainer = (props) => {
   const {movies} = props;
   //console.log(movies)
   const movieCards = movies.map(movie => {
-    return <MovieCard movie={movie}/>
+    return <MovieCard key={movie.id} movie={movie}/>
   })
   return (
     <div className='MoviesContainer'>

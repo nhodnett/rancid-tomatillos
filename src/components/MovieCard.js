@@ -5,9 +5,9 @@ const MovieCard = (props) => {
   const {id, poster_path, title} = props.movie;
   //console.log(id, poster_path, title);
     return(
-      <div className='Card' key={id}>
+      <div className='Card'>
         <img className='poster' src={poster_path}/>
-        <p>{title}</p>
+        <p className='movieTitle'>{title}</p>
       </div>
     )
 }

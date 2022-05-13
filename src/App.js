@@ -8,14 +8,14 @@ class App extends Component{
   constructor() {
     super();
     this.state = {
-      movies: moviesData.movies
+      movies: []
     }
   }
 
-  // componentDidMount = () => {
-  //   //console.log(movies)
-  //   this.setState({ movies: moviesData.movies })
-  // }
+  componentDidMount = () => {
+    //console.log(movies)
+    this.setState({ movies: moviesData.movies })
+  }
   //
   // componentDidUpdate = () => {
   // }
