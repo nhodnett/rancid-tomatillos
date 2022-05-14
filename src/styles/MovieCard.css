@@ -5,6 +5,14 @@
   background-color: #242322;
 }
 
+.Card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all .3s;
+  opacity: .7;
+  /* transition: opacity .5s; */
+}
+
 .poster {
   width: 100%;
 }

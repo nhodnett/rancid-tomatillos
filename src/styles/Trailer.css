@@ -1,7 +1,13 @@
 .trailer {
   position: absolute;
-  right: 1px;
+  right: -20px;
   height: 50%;
   width: 66%;
-  /* display: none; */
+  animation: fadein 8s;
+}
+
+@keyframes fadein {
+  0%{opacity: 0}
+  50%{opacity: 0}
+  100%{opacity: 1}
 }

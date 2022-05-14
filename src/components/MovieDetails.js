@@ -18,24 +18,22 @@ const MovieDetails = (props) => {
         tagline
      } = props.movie;
 
+const splitgenres = genres.join(" | ")
+const splitdate = release_date.split("-").shift()
 
     return (
         <div className="MovieDetails">
         <img className="detailsBackdrop"src={backdrop_path}></img>
+        <Trailer id={id}/>
         <div className="overlay">
           <img className="detailsPoster"src={poster_path}></img>
-          <Trailer id={id}/>
           <div className="info">
-            <p>{id}</p>
-            <p>{title}</p>
-            <p>{release_date}</p>
-            <p>{overview}</p>
-            <p>{average_rating}</p>
-            <p>{genres}</p>
-            <p>{budget}</p>
-            <p>{revenue}</p>
-            <p>{runtime}</p>
-            <p>{tagline}</p>
+            <p className="title">{title}</p>
+            <p className="releaseDate">{splitdate}</p>
+            <p className="overview">{overview}</p>
+            <p className="averageRating">{average_rating}</p>
+            <p className="genres">{splitgenres}</p>
+            <p className="runtime">{runtime}</p>
           </div>
         </div>
         </div>
