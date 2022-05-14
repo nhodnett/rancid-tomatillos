@@ -1,0 +1,7 @@
+.trailer {
+  position: absolute;
+  right: 1px;
+  height: 50%;
+  width: 66%;
+  /* display: none; */
+}

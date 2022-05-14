@@ -23,9 +23,10 @@ class App extends Component{
       //console.log(data);
       this.setState({movieSelected: true, movieDetails: data.movie})})
     :
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(response => response.json())
-    .then(data => this.setState({movieSelected: false, movies: data.movies}))
+      this.setState({movieSelected: false})
+    // fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    // .then(response => response.json())
+    // .then(data => this.setState({movieSelected: false, movies: data.movies}))
     }
   }
     // this.setState({
