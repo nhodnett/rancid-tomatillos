@@ -4,7 +4,6 @@ import MovieDetails from './components/MovieDetails'
 import MoviesContainer from './components/MoviesContainer'
 import './App.css';
 import movieDetails from './data/movieDetails';
-import moviesData from './data/movieData';
 
 class App extends Component{
   constructor() {
@@ -18,14 +17,27 @@ class App extends Component{
 
   handleClick = (id) => {
     // console.log(id)
-    this.setState({
-      movieSelected: id
-    })
-    // console.log(this.state)
+    {!!id ? fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    .then(response => response.json())
+    .then(data => {
+      //console.log(data);
+      this.setState({movieSelected: true, movieDetails: data.movie})})
+    :
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(data => this.setState({movieSelected: false, movies: data.movies}))
+    }
   }
+    // this.setState({
+    //   movieSelected: id
+    // console.log(this.state)
+  //}
 
   componentDidMount = () => {
-    this.setState({ movies: moviesData.movies })
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(data => this.setState({movies: data.movies}))
+    //this.setState({ movies: moviesData.movies })
   }
   //
   // componentDidUpdate = () => {
@@ -37,17 +49,17 @@ class App extends Component{
   render() {
     return (
       <main>
-        <Navbar 
+        <Navbar
             movieSelected={!!this.state.movieSelected}
             handleClick={this.handleClick}
         />
 
-        {this.state.movieSelected ? 
-          <MovieDetails 
+        {this.state.movieSelected ?
+          <MovieDetails
             movie={this.state.movieDetails}
-          /> 
-        : 
-          <MoviesContainer 
+          />
+        :
+          <MoviesContainer
             handleClick={this.handleClick}
             movies={this.state.movies}
           />
