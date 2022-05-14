@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar'
+import MovieDetails from './components/MovieDetails'
 import MoviesContainer from './components/MoviesContainer'
 import './App.css';
+import movieDetails from './data/movieDetails';
 import moviesData from './data/movieData';
 
 class App extends Component{
   constructor() {
     super();
     this.state = {
+      movieSelected: 0,
+      movieDetails: movieDetails,
       movies: []
     }
   }
 
+  handleClick = (id) => {
+    // console.log(id)
+    this.setState({
+      movieSelected: id
+    })
+    // console.log(this.state)
+  }
+
   componentDidMount = () => {
-    //console.log(movies)
     this.setState({ movies: moviesData.movies })
   }
   //
@@ -26,15 +37,25 @@ class App extends Component{
   render() {
     return (
       <main>
-        <Navbar />
-        <MoviesContainer movies={this.state.movies}/>
+        <Navbar 
+            movieSelected={!!this.state.movieSelected}
+            handleClick={this.handleClick}
+        />
+
+        {this.state.movieSelected ? 
+          <MovieDetails 
+            movie={this.state.movieDetails}
+          /> 
+        : 
+          <MoviesContainer 
+            handleClick={this.handleClick}
+            movies={this.state.movies}
+          />
+        }
       </main>
     )
   }
 
 }
-
-
-
 
 export default App;
