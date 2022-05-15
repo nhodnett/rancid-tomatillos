@@ -10,7 +10,6 @@
   transform: scale(1.05);
   transition: all .3s;
   opacity: .7;
-  /* transition: opacity .5s; */
 }
 
 .poster {

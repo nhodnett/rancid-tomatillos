@@ -14,7 +14,6 @@ componentDidMount = () => {
   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}/videos`)
   .then(response => response.json())
   .then(data => {
-    //console.log(data);
   return data.videos.find(video => {
       return video.type === 'Trailer'
     })
@@ -23,7 +22,6 @@ componentDidMount = () => {
     console.log(trailer)
     this.setState({movieKey: trailer.key})
   })
-  //this.setState({ movies: moviesData.movies })
 }
 
 render = () => {

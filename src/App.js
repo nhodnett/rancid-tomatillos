@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar'
-import MovieDetails from './components/MovieDetails'
-import MoviesContainer from './components/MoviesContainer'
+import Navbar from './components/Navbar';
+import MovieDetails from './components/MovieDetails';
+import MoviesContainer from './components/MoviesContainer';
 import './App.css';
 import movieDetails from './data/movieDetails';
+import ErrorMessage from './components/ErrorMessage';
 
 class App extends Component{
   constructor() {
@@ -11,62 +12,56 @@ class App extends Component{
     this.state = {
       movieSelected: 0,
       movieDetails: movieDetails,
-      movies: []
+      movies: [],
+      errorMessage: ''
     }
   }
 
   componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(response => {
-      // this.getErrorMessage(response.status)
       if(response.status === 200) {
         return response.json()
       }
       throw new Error(this.getErrorMessage(response.status))})
     .then(data => this.setState({movies: data.movies}))
-    .catch(err => alert(err))
-    //this.setState({ movies: moviesData.movies })
+    .catch(error => {
+      this.setState({errorMessage: error.message})
+    })
   }
 
   handleClick = (id) => {
     {!!id ? fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     .then(response => {
-      // this.getErrorMessage(response.status)
       if(response.status === 200) {
         return response.json()
       }
       throw new Error(this.getErrorMessage(response.status))})
     .then(data => {
       this.setState({movieSelected: true, movieDetails: data.movie})})
-    .catch(err => alert(err))
+    .catch(error => {
+      this.setState({errorMessage: error.message})
+    })
     :
-      this.setState({movieSelected: false})
+      this.setState({movieSelected: false, errorMessage: ''})
     }
   }
 
   getErrorMessage = (status) => {
     switch(true) {
       case (status >= 300 && status <= 399):
-      return 'Redirection message'
+      return `${status}: Redirection message`
       break;
       case (status >= 400 && status <= 499):
-      return 'Client error'
+      return `${status}: Client error`
       break;
       case (status >= 500):
-      return 'Server error'
+      return `${status}: Server error`
       break;
       default:
       return 'I have no idea what this error message is for...';
     }
-    //let message = `Something went wrong while obtaining data! Try again later...`;
   }
-
-  //
-  // componentDidUpdate = () => {
-  // }
-
-  // componentWillUnmount = () => {
-  // }
 
   render() {
     return (
@@ -75,8 +70,12 @@ class App extends Component{
             movieSelected={!!this.state.movieSelected}
             handleClick={this.handleClick}
         />
-
-        {this.state.movieSelected ?
+        {this.state.errorMessage ?
+        <ErrorMessage
+            message={this.state.errorMessage}
+        />
+        :
+        this.state.movieSelected ?
           <MovieDetails
             movie={this.state.movieDetails}
           />
