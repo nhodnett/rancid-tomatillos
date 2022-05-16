@@ -1,0 +1,81 @@
+.MovieDetails {
+  position: relative;
+}
+
+.detailsPoster {
+  height: 65%;
+  width: 34%;
+  position: absolute;
+  left: 35px;
+}
+
+.detailsBackdrop {
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  position: absolute;
+  opacity: .5;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+}
+
+.info {
+  align-self:flex-start;
+  position: absolute;
+  top: 65%;
+  color: white;
+  height: 35%;
+  width: 90%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8), 90%,
+    rgba(0, 0, 0, 0.05)
+    );
+    padding: 0 5%;
+}
+
+.title::before {
+  content: "Title: ";
+  font-weight: bold;
+}
+
+.releaseDate::before {
+  content: "Release Date: ";
+  font-weight: bold;
+}
+
+.overview::before {
+  content: "Overview: ";
+  font-weight: bold;
+}
+
+.overview {
+  text-align: justify;
+}
+
+.averageRating::before {
+  content: "Average Rating: ";
+  font-weight: bold;
+}
+
+.genres::before {
+  content: "Genres: ";
+  font-weight: bold;
+}
+
+.runtime::before {
+  content: "Runtime: ";
+  font-weight: bold;
+}
+
+.runtime::after {
+  content: " mins"
+}

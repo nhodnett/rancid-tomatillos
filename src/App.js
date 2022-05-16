@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar'
-import MovieDetails from './components/MovieDetails'
-import MoviesContainer from './components/MoviesContainer'
+import Navbar from './components/Navbar';
+import MovieDetails from './components/MovieDetails';
+import MoviesContainer from './components/MoviesContainer';
 import './App.css';
 import movieDetails from './data/movieDetails';
-import moviesData from './data/movieData';
+import ErrorMessage from './components/ErrorMessage';
 
 class App extends Component{
   constructor() {
@@ -12,42 +12,75 @@ class App extends Component{
     this.state = {
       movieSelected: 0,
       movieDetails: movieDetails,
-      movies: []
+      movies: [],
+      errorMessage: ''
     }
   }
 
-  handleClick = (id) => {
-    // console.log(id)
-    this.setState({
-      movieSelected: id
+  componentDidMount = () => {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => {
+      if(response.status === 200) {
+        return response.json()
+      }
+      throw new Error(this.getErrorMessage(response.status))})
+    .then(data => this.setState({movies: data.movies}))
+    .catch(error => {
+      this.setState({errorMessage: error.message})
     })
-    // console.log(this.state)
   }
 
-  componentDidMount = () => {
-    this.setState({ movies: moviesData.movies })
+  handleClick = (id) => {
+    {!!id ? fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    .then(response => {
+      if(response.status === 200) {
+        return response.json()
+      }
+      throw new Error(this.getErrorMessage(response.status))})
+    .then(data => {
+      this.setState({movieSelected: true, movieDetails: data.movie})})
+    .catch(error => {
+      this.setState({errorMessage: error.message})
+    })
+    :
+      this.setState({movieSelected: false, errorMessage: ''})
+    }
   }
-  //
-  // componentDidUpdate = () => {
-  // }
-  //
-  // componentWillUnmount = () => {
-  // }
+
+  getErrorMessage = (status) => {
+    switch(true) {
+      case (status >= 300 && status <= 399):
+      return `${status}: Redirection message`
+      break;
+      case (status >= 400 && status <= 499):
+      return `${status}: Client error`
+      break;
+      case (status >= 500):
+      return `${status}: Server error`
+      break;
+      default:
+      return 'I have no idea what this error message is for...';
+    }
+  }
 
   render() {
     return (
       <main>
-        <Navbar 
+        <Navbar
             movieSelected={!!this.state.movieSelected}
             handleClick={this.handleClick}
         />
-
-        {this.state.movieSelected ? 
-          <MovieDetails 
+        {this.state.errorMessage ?
+        <ErrorMessage
+            message={this.state.errorMessage}
+        />
+        :
+        this.state.movieSelected ?
+          <MovieDetails
             movie={this.state.movieDetails}
-          /> 
-        : 
-          <MoviesContainer 
+          />
+        :
+          <MoviesContainer
             handleClick={this.handleClick}
             movies={this.state.movies}
           />

@@ -7,8 +7,10 @@ const Navbar = (props) => {
 
   return (
     <nav className='Navbar'>
-      {movieSelected && <button onClick={() => handleClick(0)}>back</button>}
-      <h1 className='siteHeader'>Rancid Tomatillos</h1>
+      <h1 className='siteHeader'onClick={() => handleClick(0)}>
+      <span className="rancid">Rancid</span>
+      <span className="tomatillos"> Tomatillos</span>
+      </h1>
     </nav>
   )
 }

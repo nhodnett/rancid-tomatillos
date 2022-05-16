@@ -1,8 +1,9 @@
 import React from "react";
 import "../styles/MovieDetails.css"
+import Trailer from './Trailer';
 
 const MovieDetails = (props) => {
-    const { 
+    const {
         id,
         title,
         poster_path,
@@ -16,22 +17,25 @@ const MovieDetails = (props) => {
         runtime,
         tagline
      } = props.movie;
-    
+
+const splitgenres = genres.join(" | ")
+const splitdate = release_date.split("-").shift()
 
     return (
         <div className="MovieDetails">
-            <p>{id}</p>
-            <p>{title}</p>
-            <img src={poster_path}></img>
-            <img src={backdrop_path}></img>
-            <p>{release_date}</p>
-            <p>{overview}</p>
-            <p>{average_rating}</p>
-            <p>{genres}</p>
-            <p>{budget}</p>
-            <p>{revenue}</p>
-            <p>{runtime}</p>
-            <p>{tagline}</p>
+        <img className="detailsBackdrop"src={backdrop_path}></img>
+        <Trailer id={id}/>
+        <div className="overlay">
+          <img className="detailsPoster"src={poster_path}></img>
+          <div className="info">
+            <p className="title">{title}</p>
+            <p className="releaseDate">{splitdate}</p>
+            <p className="overview">{overview}</p>
+            <p className="averageRating">{average_rating}</p>
+            <p className="genres">{splitgenres}</p>
+            <p className="runtime">{runtime}</p>
+          </div>
+        </div>
         </div>
     )
 }

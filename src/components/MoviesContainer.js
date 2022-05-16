@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import MovieCard from './MovieCard';
 import '../styles/MoviesContainer.css';
 
@@ -9,8 +9,8 @@ const MoviesContainer = (props) => {
   } = props;
 
   const movieCards = movies.map(movie => {
-    return <MovieCard 
-    key={movie.id} 
+    return <MovieCard
+    key={movie.id}
     movie={movie}
     handleClick={handleClick}
     />
