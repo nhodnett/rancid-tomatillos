@@ -28,7 +28,7 @@ const splitdate = release_date.split("-").shift()
         <div className="overlay">
           <img className="detailsPoster"src={poster_path}></img>
           <div className="info">
-            <p className="title">{title}</p>
+            <p className="title" value={title}>{title}</p>
             <p className="releaseDate">{splitdate}</p>
             <p className="overview">{overview}</p>
             <p className="averageRating">{average_rating}</p>
