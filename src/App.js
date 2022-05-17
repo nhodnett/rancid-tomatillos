@@ -69,8 +69,8 @@ class App extends Component{
       <main className="App">
         <Navbar />
         <Route exact path="/" component={ MoviesContainer } />
-        <Route path="/:id" render={({ match }) => {
-          return <MovieDetails id={match.props.id}/>
+        <Route exact path="/:id" render={({ match }) => {
+          return <MovieDetails id={match.params.id}/>
         }
         } />
       </main>

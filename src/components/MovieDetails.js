@@ -10,7 +10,8 @@ class MovieDetails extends Component {
     this.state = {
       id: props.id,
       errorMessage: '',
-      movieDetails: {}
+      movieDetails: {},
+      trailerId: ''
     }
 }
 
@@ -22,6 +23,7 @@ componentDidMount = () => {
     }
     throw new Error(this.getErrorMessage(response.status))})
   .then(data => {
+    this.getTrailerId()
     this.setState({movieDetails: data.movie})})
   .catch(error => {
     this.setState({errorMessage: error.message})
@@ -29,6 +31,25 @@ componentDidMount = () => {
   :
     this.setState({errorMessage: ''})
   }
+
+}
+
+getTrailerId = () => {
+  fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}/videos`)
+  .then(response => response.json())
+  .then(data => {
+  if (data.videos.length) {
+    return data.videos.find(video => video.type === 'Trailer')
+  } 
+  throw new Error("no trailer available")
+  })
+  .then(trailer => {
+    if (trailer.key) {
+        this.setState({trailerId: trailer.key})
+    } 
+    throw new Error("no trailer available")
+  })
+  .catch(error => console.log(error))
 }
 
 getErrorMessage = (status) => {
@@ -62,14 +83,14 @@ getErrorMessage = (status) => {
         runtime,
         tagline
      } = this.state.movieDetails;
-
-     const splitgenres = genres.join(" | ")
-     const splitdate = release_date.split("-").shift()
+     
+     const splitgenres = genres && genres.join(" | ")
+     const splitdate = release_date && release_date.split("-").shift()
 
     return (
         <div className="MovieDetails">
         <img className="detailsBackdrop"src={backdrop_path}></img>
-        <Trailer id={id}/>
+        {this.state.trailerId && <Trailer id={this.state.trailerId}/>}
         <div className="overlay">
           <img className="detailsPoster"src={poster_path}></img>
           <div className="info">
