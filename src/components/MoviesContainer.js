@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard';
 import '../styles/MoviesContainer.css';
+import ErrorMessage from './ErrorMessage';
 
 class MoviesContainer extends Component{
   constructor() {
@@ -41,6 +42,7 @@ getErrorMessage = (status) => {
 }
 
 render() {
+    if (this.state.errorMessage) return (<ErrorMessage message={this.state.errorMessage}/>)
   const movieCards = this.state.movies.map(movie => {
     return <MovieCard
     key={movie.id}

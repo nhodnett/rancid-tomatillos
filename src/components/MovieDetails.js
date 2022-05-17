@@ -87,6 +87,9 @@ getErrorMessage = (status) => {
      const splitgenres = genres && genres.join(" | ")
      const splitdate = release_date && release_date.split("-").shift()
 
+     if (this.state.errorMessage) {
+       return (<ErrorMessage message={this.state.errorMessage}/>)
+     } 
     return (
         <div className="MovieDetails">
         <img className="detailsBackdrop"src={backdrop_path}></img>
