@@ -1,16 +1,16 @@
 import React from 'react';
 import '../styles/Navbar.css';
+import { NavLink } from 'react-router-dom';
 
-const Navbar = (props) => {
-  const movieSelected = props.movieSelected;
-  const handleClick = props.handleClick;
-
+const Navbar = () => {
   return (
     <nav className='Navbar'>
-      <h1 className='siteHeader'onClick={() => handleClick(0)}>
+      <NavLink to="/">
+      <h1 className='siteHeader'>
       <span className="rancid">Rancid</span>
       <span className="tomatillos"> Tomatillos</span>
       </h1>
+      </NavLink>
     </nav>
   )
 }
