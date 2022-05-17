@@ -13,12 +13,12 @@ describe('App', () => {
       cy.get(".MoviesContainer").find(".Card").should("have.length", 40)
     }) 
 
-    it("As a user, I should be able to select a specific movie.", () => {
+    it("As a user, I should be able to select a specific movie. (first)", () => {
       cy.get(".MoviesContainer").find(".Card").first().click()
       cy.get(".MovieDetails").find(".title").contains("Money Plane")
     }) 
 
-    it("As a user, I should be able to select a specific movie.", () => {
+    it("As a user, I should be able to select a specific movie. (last)", () => {
       cy.get(".MoviesContainer").find(".Card").last().click()
       cy.get(".MovieDetails").find(".title").contains("I Still Believe")
     }) 
@@ -30,7 +30,7 @@ describe('App', () => {
       .get(".MoviesContainer").find(".Card").should("have.length", 40)
     }) 
 
-    it("As a user, I will recieve an error message if the server returns a 404.", () => {
+    it("As a user, I will receive an error message if the server returns a 404.", () => {
       cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies", 
         { statusCode: 404, body: 'Cypress forced 404', }
       )
@@ -39,7 +39,7 @@ describe('App', () => {
       
     })
 
-    it("As a user, I will recieve an error message if the server returns a 500.", () => {
+    it("As a user, I will receive an error message if the server returns a 500.", () => {
       cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies", 
         { statusCode: 500, body: 'Cypress forced 500', }
       )
