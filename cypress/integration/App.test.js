@@ -30,17 +30,21 @@ describe('App', () => {
       .get(".MoviesContainer").find(".Card").should("have.length", 40)
     }) 
 
-    it("As a user, I will recieve an error message if the server returns a error message.", () => {
-      cy.intercept('Get', "http://localhost:3000", 
-      {
-        statusCode: 404,
-        body: {
-          message: "404: Client error",
-        }
-      })
-      .request("http://localhost:3000", {failOnStatusCode: false} )
-      .wait(3000)
+    it("As a user, I will recieve an error message if the server returns a 404.", () => {
+      cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies", 
+        { statusCode: 404, body: 'Cypress forced 404', }
+      )
+      cy.visit("http://localhost:3000")
       .get(".errorMessage").should("contain", "404: Client error")
+      
+    })
+
+    it("As a user, I will recieve an error message if the server returns a 500.", () => {
+      cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies", 
+        { statusCode: 500, body: 'Cypress forced 500', }
+      )
+      cy.visit("http://localhost:3000")
+      .get(".errorMessage").should("contain", "500: Server error")
       
     })
 
