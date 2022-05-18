@@ -10,7 +10,7 @@ class MoviesContainer extends Component{
       movies: [],
       errorMessage: ''
     }
-}
+  }
 
 componentDidMount = () => {
   fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
@@ -28,25 +28,25 @@ componentDidMount = () => {
 getErrorMessage = (status) => {
   switch(true) {
     case (status >= 300 && status <= 399):
-    return `${status}: Redirection message`
+      return `${status}: Redirection message`
     break;
     case (status >= 400 && status <= 499):
-    return `${status}: Client error`
+      return `${status}: Client error`
     break;
     case (status >= 500):
-    return `${status}: Server error`
+      return `${status}: Server error`
     break;
     default:
-    return 'I have no idea what this error message is for...';
+      return 'I have no idea what this error message is for...';
   }
 }
 
 render() {
-    if (this.state.errorMessage) return (<ErrorMessage message={this.state.errorMessage}/>)
+  if (this.state.errorMessage) return (<ErrorMessage message={this.state.errorMessage}/>)
   const movieCards = this.state.movies.map(movie => {
     return <MovieCard
-    key={movie.id}
-    movie={movie}
+      key={movie.id}
+      movie={movie}
     />
   })
   return (

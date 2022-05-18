@@ -40,13 +40,13 @@ getTrailerId = () => {
   .then(data => {
   if (data.videos.length) {
     return data.videos.find(video => video.type === 'Trailer')
-  } 
+  }
   throw new Error("no trailer available")
   })
   .then(trailer => {
     if (trailer.key) {
         this.setState({trailerId: trailer.key})
-    } 
+    }
     throw new Error("no trailer available")
   })
   .catch(error => console.log(error))
@@ -55,16 +55,16 @@ getTrailerId = () => {
 getErrorMessage = (status) => {
   switch(true) {
     case (status >= 300 && status <= 399):
-    return `${status}: Redirection message`
+      return `${status}: Redirection message`
     break;
     case (status >= 400 && status <= 499):
-    return `${status}: Client error`
+      return `${status}: Client error`
     break;
     case (status >= 500):
-    return `${status}: Server error`
+      return `${status}: Server error`
     break;
     default:
-    return 'I have no idea what this error message is for...';
+      return 'I have no idea what this error message is for...';
   }
 }
 
@@ -78,18 +78,20 @@ getErrorMessage = (status) => {
         overview,
         average_rating,
         genres,
-        budget,
-        revenue,
-        runtime,
-        tagline
+        runtime
      } = this.state.movieDetails;
-     
+
+     const ratingPercentage = 0;
      const splitgenres = genres && genres.join(" | ")
      const splitdate = release_date && release_date.split("-").shift()
+     console.log(typeof average_rating);
+     if (average_rating > 0) {
+       return ratingPercentage = parseInt(average_rating) * 10}
+     console.log(ratingPercentage);
 
      if (this.state.errorMessage) {
        return (<ErrorMessage message={this.state.errorMessage}/>)
-     } 
+     }
     return (
         <div className="MovieDetails">
         <img className="detailsBackdrop"src={backdrop_path}></img>
@@ -97,12 +99,15 @@ getErrorMessage = (status) => {
         <div className="overlay">
           <img className="detailsPoster"src={poster_path}></img>
           <div className="info">
+            <p classname="quickFacts">
+              <span className="ratingPercentage">{ratingPercentage} |</span>
+              <span className="releaseDate"> {splitdate} |</span>
+              <span className="runtime"> {runtime}</span>
+            </p>
             <p className="title">{title}</p>
-            <p className="releaseDate">{splitdate}</p>
             <p className="overview">{overview}</p>
-            <p className="averageRating">{average_rating}</p>
             <p className="genres">{splitgenres}</p>
-            <p className="runtime">{runtime}</p>
+            {/*<span className="runtime">{runtime}</span>*/}
           </div>
         </div>
         </div>

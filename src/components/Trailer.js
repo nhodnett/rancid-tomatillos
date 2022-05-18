@@ -10,10 +10,10 @@ class Trailer extends Component{
   }
 
   render = () => {
-    return (this.state.id && <iframe 
-        className="trailer" 
-        width="840" 
-        height="472.5"
+    return (this.state.id && <iframe
+        className="trailer"
+        width="840"
+        height="691.74"
         src={`https://www.youtube.com/embed/${this.state.id}?controls=0&autoplay=1&mute=1`}
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
