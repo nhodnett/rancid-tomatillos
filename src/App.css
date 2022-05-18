@@ -1,6 +1,8 @@
+ a {
+   text-decoration: none;
+}
 .App {
   overflow: hidden;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
