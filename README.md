@@ -15,7 +15,14 @@ Rancid Tomatillos
 - [Testing](#testing)
 - [Extensions Completed](#extensions-completed)
 
-## About the Project 
+> Iteration 5 pseudocode - Search by Title or Genre...
+> When the page loads, App does 2 apiCalls, 1 for the 40 movies, (container) and 1 for each individual movie, (details).
+> The result of those apiCalls are stored in state in App and can be passed down to MoviesContainer and movieDetails.
+> The user can search by title or genre based on the results stored in state.
+> We will access the movie id's using dot notation on the movie objects.
+
+
+## About the Project
 
 Rancid Tomatillos is a web application that...
 
@@ -60,7 +67,7 @@ The details of this project are outlined in the [project spec](https://frontend.
 ## Project Evolution
 >how did the project change over time?
 
-## Project Reflections 
+## Project Reflections
 >what didn't work, what did we learn?
 
 * Eli Davidson:
@@ -69,7 +76,7 @@ The details of this project are outlined in the [project spec](https://frontend.
 
 * Team Member 3:
 
-## Extensions 
+## Extensions
 
 ### Not attempted
 ### Completed
@@ -94,7 +101,7 @@ Once in the application you will see many options. Each step will outline a feat
 
 ## Application in Action
 
-This is a basic gif demonstration of feature. 
+This is a basic gif demonstration of feature.
 
 ## Testing
 

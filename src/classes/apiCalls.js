@@ -12,7 +12,7 @@ const apiCalls = (handleState, id) => {
     })
     .then(data => {
       if (id) {
-        handleState({movieDetails: data.movie})
+        handleState(data.movie)
       } else {
         handleState({movies: data.movies})
       }})

@@ -9,32 +9,29 @@ class MoviesContainer extends Component{
     super();
     this.state = {
       movies: [],
+      query: '',
       errorMessage: ''
     }
   }
 
-  handleState = (state) => {
-    this.setState(state)
+  componentDidMount = () => {
+    this.setState({ movies: this.props.movies })
   }
 
-  componentDidMount = () => {
-    apiCalls(this.handleState)
-}
-
-render() {
-  if (this.state.errorMessage) return (<ErrorMessage message={this.state.errorMessage}/>)
-  const movieCards = this.state.movies.map(movie => {
-    return <MovieCard
-      key={movie.id}
-      movie={movie}
-    />
-  })
-  return (
-    <div className='MoviesContainer'>
-      {movieCards}
-    </div>
-  )
-}
+  render() {
+    if (this.state.errorMessage) return (<ErrorMessage message={this.state.errorMessage}/>)
+    const movieCards = this.props.movies.map(movie => {
+      return <MovieCard
+        key={movie.id}
+        movie={movie}
+      />
+    })
+    return (
+      <div className='MoviesContainer'>
+        {movieCards}
+      </div>
+    )
+  }
 }
 
 export default MoviesContainer;
