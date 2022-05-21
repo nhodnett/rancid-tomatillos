@@ -3,18 +3,13 @@ import Navbar from './components/Navbar';
 import MovieDetails from './components/MovieDetails';
 import MoviesContainer from './components/MoviesContainer';
 import './App.css';
-import movieDetails from './data/movieDetails';
-import ErrorMessage from './components/ErrorMessage';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component{
   constructor() {
     super();
     this.state = {
-      movieSelected: 0,
-      movieDetails: movieDetails,
       movies: [],
-      errorMessage: ''
     }
   }
 
@@ -30,7 +25,6 @@ class App extends Component{
       </main>
     )
   }
-
 }
 
 export default App;

@@ -1,7 +1,5 @@
 .trailer {
   position: absolute;
-  /* right: -20px; */
-  /* height: 50%; */
   width: 66vw;
   animation: fadein 8s;
   right: 0;

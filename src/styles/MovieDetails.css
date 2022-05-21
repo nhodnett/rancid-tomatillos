@@ -3,14 +3,12 @@
 }
 
 .detailsPoster {
-  /* height: 65%; */
   width: 34vw;
   position: absolute;
   left: 35px;
 }
 
 .detailsBackdrop {
-  /* height: 66vh; */
   width: 66vw;
   z-index: 0;
   position: absolute;
@@ -59,11 +57,6 @@
   font-weight: bold;
 }
 
-/* .releaseDate::before {
-  content: "Release Date: ";
-  font-weight: bold;
-} */
-
 .overview::before {
   content: "Overview: ";
   font-weight: bold;
@@ -73,21 +66,7 @@
   text-align: justify;
 }
 
-/* .averageRating::before {
-  content: "Average Rating: ";
-  font-weight: bold;
-} */
-
 .genres::before {
   content: "Genres: ";
   font-weight: bold;
 }
-
-/* .runtime::before {
-  content: "Runtime: ";
-  font-weight: bold;
-} */
-
-/* .runtime::after {
-  content: " mins"
-} */

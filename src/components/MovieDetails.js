@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "../styles/MovieDetails.css"
 import Trailer from './Trailer';
 import ErrorMessage from './ErrorMessage';
-import apiCalls from '../classes/apiCalls';
+import { apiCalls } from '../classes/apiCalls';
 
 
 class MovieDetails extends Component {
@@ -11,8 +11,7 @@ class MovieDetails extends Component {
     this.state = {
       id: props.id,
       errorMessage: '',
-      movieDetails: {},
-      trailerId: ''
+      movieDetails: {}
     }
 }
 
@@ -21,58 +20,8 @@ handleState = (state) => {
 }
 
 componentDidMount = () => {
-  apiCalls(this.state.id, this.handleState)
-//   {this.state.id ? fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}`)
-//   .then(response => {
-//     if(response.status === 200) {
-//       return response.json()
-//     }
-//     throw new Error(this.getErrorMessage(response.status))})
-//   .then(data => {
-//     this.getTrailerId()
-//     this.setState({movieDetails: data.movie})})
-//   .catch(error => {
-//     this.setState({errorMessage: error.message})
-//   })
-//   :
-//     this.setState({errorMessage: ''})
-//   }
-//
- }
-
-// getTrailerId = () => {
-//   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}/videos`)
-//   .then(response => response.json())
-//   .then(data => {
-//   if (data.videos.length) {
-//     return data.videos.find(video => video.type === 'Trailer')
-//   }
-//   throw new Error("no trailer available")
-//   })
-//   .then(trailer => {
-//     if (trailer.key) {
-//         this.setState({trailerId: trailer.key})
-//     }
-//     throw new Error("no trailer available")
-//   })
-//   .catch(error => console.log(error))
-// }
-
-// getErrorMessage = (status) => {
-//   switch(true) {
-//     case (status >= 300 && status <= 399):
-//       return `${status}: Redirection message`
-//     break;
-//     case (status >= 400 && status <= 499):
-//       return `${status}: Client error`
-//     break;
-//     case (status >= 500):
-//       return `${status}: Server error`
-//     break;
-//     default:
-//       return 'I have no idea what this error message is for...';
-//   }
-// }
+  apiCalls(this.handleState, this.state.id)
+}
 
   render() {
     const {
@@ -98,11 +47,11 @@ componentDidMount = () => {
     return (
         <div className="MovieDetails">
         <img className="detailsBackdrop"src={backdrop_path}></img>
-        {this.state.trailerId && <Trailer id={this.state.trailerId}/>}
+        <Trailer id={this.state.id}/>
         <div className="overlay">
           <img className="detailsPoster"src={poster_path}></img>
           <div className="info">
-            <p classname="quickFacts">
+            <p className="quickFacts">
               <span className="splitrating">{splitrating}% |</span>
               <span className="releaseDate"> {splitdate} |</span>
               <span className="runtime"> {splitruntime}</span>
@@ -110,7 +59,6 @@ componentDidMount = () => {
             <p className="title">{title}</p>
             <p className="overview">{overview}</p>
             <p className="genres">{splitgenres}</p>
-            {/*<span className="runtime">{runtime}</span>*/}
           </div>
         </div>
         </div>
