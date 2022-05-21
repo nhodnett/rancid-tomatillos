@@ -3,18 +3,27 @@
 }
 
 .detailsPoster {
-  height: 65%;
-  width: 34%;
+  width: 34vw;
   position: absolute;
   left: 35px;
 }
 
 .detailsBackdrop {
-  height: 100vh;
-  width: 100vw;
+  width: 66vw;
   z-index: 0;
   position: absolute;
   opacity: .5;
+  right: 0;
+}
+
+.detailsBackdrop:after {
+    position: absolute;
+    content:"";
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background: linear-gradient(to bottom, rgba(255,0,0,0) 0%,rgba(255,0,0,0.65) 100%);
 }
 
 .overlay {
@@ -28,12 +37,13 @@
 }
 
 .info {
-  align-self:flex-start;
+  align-self:flex-end;
   position: absolute;
   top: 65%;
   color: white;
   height: 35%;
-  width: 90%;
+  width: 50%;
+  right: 0;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.8), 90%,
@@ -47,11 +57,6 @@
   font-weight: bold;
 }
 
-.releaseDate::before {
-  content: "Release Date: ";
-  font-weight: bold;
-}
-
 .overview::before {
   content: "Overview: ";
   font-weight: bold;
@@ -61,21 +66,7 @@
   text-align: justify;
 }
 
-.averageRating::before {
-  content: "Average Rating: ";
-  font-weight: bold;
-}
-
 .genres::before {
   content: "Genres: ";
   font-weight: bold;
-}
-
-.runtime::before {
-  content: "Runtime: ";
-  font-weight: bold;
-}
-
-.runtime::after {
-  content: " mins"
 }

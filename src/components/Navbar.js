@@ -7,8 +7,8 @@ const Navbar = () => {
     <nav className='Navbar'>
       <NavLink to="/">
       <h1 className='siteHeader'>
-      <span className="rancid">Rancid</span>
-      <span className="tomatillos"> Tomatillos</span>
+        <span className="rancid">Rancid</span>
+        <span className="tomatillos"> Tomatillos</span>
       </h1>
       </NavLink>
     </nav>

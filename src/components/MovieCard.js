@@ -9,7 +9,7 @@ const MovieCard = (props) => {
     title,
   } = props.movie;
 
-    return(
+  return(
     <NavLink to={`/${id}`}>
       <div
         key={id}
@@ -17,8 +17,8 @@ const MovieCard = (props) => {
         <img className='poster' src={poster_path}/>
         <p className='movieTitle'>{title}</p>
       </div>
-      </NavLink>
-    )
+    </NavLink>
+  )
 }
 
 
