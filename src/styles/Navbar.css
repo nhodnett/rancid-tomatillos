@@ -4,14 +4,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: black;
   color: red;
   margin: 0;
   padding: 20px;
 }
 
+.searchBar {
+  height: 30px;
+  width: 180px;
+  border-radius: .5rem;
+  font-size: 20px;
+}
+
+.searchBar:focus::placeholder {
+  color: transparent;
+}
+
 .siteHeader {
   font-family: 'Roboto Condensed', sans-serif;
+  width: 50vw;
   margin: 0;
   padding: 0;
 }
@@ -28,4 +41,14 @@
 .tomatillos {
   color: white;
   font-size: 50px
+}
+/* this is something we came across in our research */
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }

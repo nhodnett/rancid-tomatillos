@@ -13,7 +13,8 @@ class App extends Component{
     this.state = {
       movies: [],
       movieDetailsData: [],
-      loaded: false
+      query: '',
+      errorMessage: ''
     }
   }
 
@@ -32,17 +33,22 @@ class App extends Component{
       apiCalls(this.handleStateDetails, movie.id)
     })
   }
-  
+
   handleStateDetails = (movie) => {
     this.setState(prevState =>  ({movieDetailsData: [...prevState.movieDetailsData, movie]} ))
+  }
+
+  handleChange = (query) => {
+    this.setState({query: query})
   }
 
   render = () => {
     return (
       <main className="App">
-        <Navbar />
+        <Navbar handleChange={this.handleChange} query={this.state.query}/>
+        { this.state.query && <h2 className="resultsFeedback">Search results for '{this.state.query}'</h2> }
        { (this.state.movies.length === this.state.movieDetailsData.length) && <Switch>
-          <Route exact path="/" render={() => <MoviesContainer movies={this.state.movieDetailsData}/>} />
+          <Route exact path="/" render={() => <MoviesContainer errorMessage={this.state.errorMessage} movies={this.state.movies} query={this.state.query}/>} />
           <Route exact path="/:id" render={({ match }) => {
             return <MovieDetails id={match.params.id} movieDetails={this.state.movieDetailsData.find(movie => movie.id == match.params.id)}/>
           }} />

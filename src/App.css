@@ -10,3 +10,9 @@
 body {
   background-color: black;
 }
+
+.resultsFeedback {
+  color: white;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}

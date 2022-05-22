@@ -15,8 +15,21 @@ class MoviesContainer extends Component{
   }
 
   componentDidMount = () => {
-    this.setState({movies: this.props.movies, query: this.props.query})
+    this.setState({movies: this.props.movies, query: this.props.query, errorMessage: this.props.errorMessage})
   }
+
+  componentDidUpdate = () => {
+    this.setState(prevState => {
+    if(prevState.errorMessage != this.props.errorMessage) {
+    return ({errorMessage: this.props.errorMessage})
+  }
+})
+    this.setState(prevState => {
+    if(prevState.query != this.props.query) {
+    return ({query: this.props.query})
+  }
+})
+}
 
   render() {
     if (this.state.errorMessage) return (<ErrorMessage message={this.state.errorMessage}/>)
@@ -33,8 +46,16 @@ class MoviesContainer extends Component{
   filterMovies = (movies) => {
     const { query } = this.state;
     return movies.filter(movie => {
-      return query ? movie.title.toLowerCase().includes(query.toLowerCase()) : true
-    }) 
+      console.log(movie);
+      if (query && movie.genres) {
+      return movie.title.toLowerCase().includes(query.toLowerCase()) || movie.genres.some(genre => {
+        return genre.toLowerCase().includes(query.toLowerCase())})
+      } else if (query && !movie.genres) {
+        return movie.title.toLowerCase().includes(query.toLowerCase())
+      } else {
+      return true
+    }
+    })
   }
 
   getMovieCards = (movies) => movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
