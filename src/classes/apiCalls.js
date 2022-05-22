@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+
 
 const apiCalls = (handleState, id) => {
   let movieId = ''
   if (id) movieId = `/${id}`
-  fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies${movieId}`)
+  return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies${movieId}`)
     .then(response => {
       if(response.status === 200) {
         return response.json()

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/MovieCard.css';
 import { NavLink } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const MovieCard = (props) => {
       <div
         key={id}
         className='Card'>
-        <img className='poster' src={poster_path}/>
+        <img className='poster' src={poster_path} alt={title}/>
         <p className='movieTitle'>{title}</p>
       </div>
     </NavLink>

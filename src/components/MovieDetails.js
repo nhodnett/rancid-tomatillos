@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import "../styles/MovieDetails.css"
 import Trailer from './Trailer';
-import ErrorMessage from './ErrorMessage';
-import { apiCalls } from '../classes/apiCalls';
-
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -11,7 +8,7 @@ class MovieDetails extends Component {
     this.state = {
       id: props.id,
       errorMessage: '',
-      movieDetails: {}
+      movieDetails: []
     }
 }
 
@@ -20,12 +17,12 @@ handleState = (state) => {
 }
 
 componentDidMount = () => {
-  apiCalls(this.handleState, this.state.id)
+  this.setState({movieDetails: this.props.movieDetails})
 }
 
   render() {
+
     const {
-        id,
         title,
         poster_path,
         backdrop_path,
@@ -34,22 +31,19 @@ componentDidMount = () => {
         average_rating,
         genres,
         runtime
-     } = this.state.movieDetails;
+     } = this.state.movieDetails
 
      const splitgenres = genres && genres.join(" | ")
      const splitdate = release_date && release_date.split("-").shift()
      const splitrating = parseFloat(average_rating).toFixed(1) * 10
      const splitruntime = Math.floor(runtime / 60) + "h " + (runtime % 60) + "m"
 
-     if (this.state.errorMessage) {
-       return (<ErrorMessage message={this.state.errorMessage}/>)
-     }
     return (
         <div className="MovieDetails">
-        <img className="detailsBackdrop"src={backdrop_path}></img>
+        <img className="detailsBackdrop"src={backdrop_path} alt={title}></img>
         <Trailer id={this.state.id}/>
         <div className="overlay">
-          <img className="detailsPoster"src={poster_path}></img>
+          <img className="detailsPoster"src={poster_path} alt={title}></img>
           <div className="info">
             <p className="quickFacts">
               <span className="splitrating">{splitrating}% |</span>

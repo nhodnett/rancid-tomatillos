@@ -5,13 +5,15 @@ import MoviesContainer from './components/MoviesContainer';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { apiCalls } from './classes/apiCalls';
+import { Switch } from 'react-router-dom';
 
 class App extends Component{
   constructor() {
     super();
     this.state = {
       movies: [],
-      movieDetailsData: []
+      movieDetailsData: [],
+      loaded: false
     }
   }
 
@@ -30,21 +32,22 @@ class App extends Component{
       apiCalls(this.handleStateDetails, movie.id)
     })
   }
-
+  
   handleStateDetails = (movie) => {
-    this.setState({ movieDetailsData: [...this.state.movieDetailsData, movie] })
+    this.setState(prevState =>  ({movieDetailsData: [...prevState.movieDetailsData, movie]} ))
   }
 
-  render() {
+  render = () => {
     return (
       <main className="App">
         <Navbar />
-        <Route exact path="/" render={() => {
-          return this.state.movies && <MoviesContainer movies={this.state.movies}/>
-        }} />
-        <Route exact path="/:id" render={({ match }) => {
-          return <MovieDetails id={match.params.id}/>
-        }} />
+       { (this.state.movies.length === this.state.movieDetailsData.length) && <Switch>
+          <Route exact path="/" render={() => <MoviesContainer movies={this.state.movieDetailsData}/>} />
+          <Route exact path="/:id" render={({ match }) => {
+            return <MovieDetails id={match.params.id} movieDetails={this.state.movieDetailsData.find(movie => movie.id == match.params.id)}/>
+          }} />
+          <Route exact path="/search/:query" render={({ match }) => <MoviesContainer movies={this.state.movieDetailsData} query={match.params.query}/>} />
+        </Switch>}
       </main>
     )
   }
