@@ -45,10 +45,9 @@ class App extends Component{
   render = () => {
     return (
       <main className="App">
-        { if (this.state.movies.length === this.state.movieDetailsData.length) {
-          return (<Switch>
+        {(this.state.movies.length === this.state.movieDetailsData.length) && <Switch>
           <Route exact path="/" render={() => {
-            return (
+          return (
               <div>
               <Navbar handleChange={this.handleChange} query={this.state.query} searchBar={true}/>
               { this.state.query && <h2 className="resultsFeedback">Search results for '{this.state.query}'</h2> }
@@ -65,9 +64,7 @@ class App extends Component{
             )
           }} />
           <Route exact path="/search/:query" render={({ match }) => <MoviesContainer movies={this.state.movieDetailsData} query={match.params.query}/>} />
-        </Switch>)} else {
-          <h1>Loading...</h1>
-        }}
+        </Switch>}
       </main>
     )
   }
