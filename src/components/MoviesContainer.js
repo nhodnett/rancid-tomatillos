@@ -46,10 +46,9 @@ class MoviesContainer extends Component{
   filterMovies = (movies) => {
     const { query } = this.state;
     return movies.filter(movie => {
-      console.log(movie);
       if (query && movie.genres) {
-      return movie.title.toLowerCase().includes(query.toLowerCase()) || movie.genres.some(genre => {
-        return genre.toLowerCase().includes(query.toLowerCase())})
+      return movie.genres.some(genre => {
+        return genre.toLowerCase().includes(query.toLowerCase())}) || movie.title.toLowerCase().includes(query.toLowerCase())
       } else if (query && !movie.genres) {
         return movie.title.toLowerCase().includes(query.toLowerCase())
       } else {

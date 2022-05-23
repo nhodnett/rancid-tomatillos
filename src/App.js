@@ -45,15 +45,29 @@ class App extends Component{
   render = () => {
     return (
       <main className="App">
-        <Navbar handleChange={this.handleChange} query={this.state.query}/>
-        { this.state.query && <h2 className="resultsFeedback">Search results for '{this.state.query}'</h2> }
-       { (this.state.movies.length === this.state.movieDetailsData.length) && <Switch>
-          <Route exact path="/" render={() => <MoviesContainer errorMessage={this.state.errorMessage} movies={this.state.movies} query={this.state.query}/>} />
+        { if (this.state.movies.length === this.state.movieDetailsData.length) {
+          return (<Switch>
+          <Route exact path="/" render={() => {
+            return (
+              <div>
+              <Navbar handleChange={this.handleChange} query={this.state.query} searchBar={true}/>
+              { this.state.query && <h2 className="resultsFeedback">Search results for '{this.state.query}'</h2> }
+              <MoviesContainer errorMessage={this.state.errorMessage} movies={this.state.movieDetailsData} query={this.state.query} />
+              </div>
+            )
+          }} />
           <Route exact path="/:id" render={({ match }) => {
-            return <MovieDetails id={match.params.id} movieDetails={this.state.movieDetailsData.find(movie => movie.id == match.params.id)}/>
+            return (
+            <div>
+            <Navbar handleChange={this.handleChange} query="" searchBar={false}/>
+            <MovieDetails id={match.params.id} movieDetails={this.state.movieDetailsData.find(movie => movie.id == match.params.id)}/>
+            </div>
+            )
           }} />
           <Route exact path="/search/:query" render={({ match }) => <MoviesContainer movies={this.state.movieDetailsData} query={match.params.query}/>} />
-        </Switch>}
+        </Switch>)} else {
+          <h1>Loading...</h1>
+        }}
       </main>
     )
   }
