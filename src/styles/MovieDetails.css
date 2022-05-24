@@ -12,18 +12,22 @@
   width: 66vw;
   z-index: 0;
   position: absolute;
-  opacity: .5;
+  opacity: 0.5;
   right: 0;
 }
 
 .detailsBackdrop:after {
-    position: absolute;
-    content:"";
-    height:100%;
-    width:100%;
-    top:0;
-    left:0;
-    background: linear-gradient(to bottom, rgba(255,0,0,0) 0%,rgba(255,0,0,0.65) 100%);
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0) 0%,
+    rgba(255, 0, 0, 0.65) 100%
+  );
 }
 
 .overlay {
@@ -37,7 +41,7 @@
 }
 
 .info {
-  align-self:flex-end;
+  align-self: flex-end;
   position: absolute;
   top: 65%;
   color: white;
@@ -46,10 +50,11 @@
   right: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8), 90%,
+    rgba(0, 0, 0, 0.8),
+    90%,
     rgba(0, 0, 0, 0.05)
-    );
-    padding: 0 5%;
+  );
+  padding: 0 5%;
 }
 
 .title::before {

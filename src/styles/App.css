@@ -1,5 +1,5 @@
- a {
-   text-decoration: none;
+a {
+  text-decoration: none;
 }
 .App {
   overflow: hidden;
@@ -9,4 +9,10 @@
 
 body {
   background-color: black;
+}
+
+.resultsFeedback {
+  color: white;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }

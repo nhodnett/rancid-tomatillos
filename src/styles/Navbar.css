@@ -1,17 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 .Navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: black;
   color: red;
   margin: 0;
   padding: 20px;
 }
 
+.searchBar {
+  height: 30px;
+  width: 180px;
+  border-radius: 0.5rem;
+  font-size: 20px;
+}
+
+.searchBar:focus::placeholder {
+  color: transparent;
+}
+
 .siteHeader {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  width: 50vw;
   margin: 0;
   padding: 0;
 }
@@ -27,5 +40,15 @@
 
 .tomatillos {
   color: white;
-  font-size: 50px
+  font-size: 50px;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
