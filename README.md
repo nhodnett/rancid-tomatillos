@@ -6,7 +6,7 @@ Rancid Tomatillos
 - [Contributors](#contributors)
 - [Learning Goals](#learning-goals)
 - [Project Evolution](#project-evolution)
-- [Project Reflections] (##project-reflections)
+- [Project Reflections](#project-reflections)
 - [Organizational Resources](#organizational-resources)
 - [Set Up](#set-up)
 - [Operating Instructions](#operating-instructions)
@@ -15,18 +15,20 @@ Rancid Tomatillos
 - [Testing](#testing)
 - [Extensions Completed](#extensions-completed)
 
-> Iteration 5 pseudocode - Search by Title or Genre...
-> When the page loads, App does 2 apiCalls, 1 for the 40 movies, (container) and 1 for each individual movie, (details).
-> The result of those apiCalls are stored in state in App and can be passed down to MoviesContainer and movieDetails.
-> The user can search by title or genre based on the results stored in state.
-> We will access the movie id's using dot notation on the movie objects.
-
-
 ## About the Project
 
-Rancid Tomatillos is a web application that...
+Rancid Tomatillos is a web application that allows the user to browse a selection of movies. The user can click on any one of the movies to view more details about that particular movie. The user also has the option of searching for a particular movie by title or genre. Once the user selects a movie, and goes to the movies details page, a trailer automatically loads so they can get a good feel for that movie. 
 
 The details of this project are outlined in the [project spec](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
+
+
+## Application in Action
+
+### View Movie Details
+![movie-details](./assets/movie-details.gif)
+
+### Search by Genre
+![movie-details](./assets/genre-search.gif)
 
 ## Technologies Used
 
@@ -34,75 +36,65 @@ The details of this project are outlined in the [project spec](https://frontend.
 1. React.js
 1. Router
 1. Cypress
-1. Aria
-1. Lighthouse
-1. WAVE
 1. Figma
 1. Git & Github
 1. Postman
 1. HTML
 1. CSS
-1. SASS
-1. Mocha and Chai
-1. Webpack
 1. NPM
 ## Contributors
 
 * [Eli Davidson](https://github.com/elleshadow)
 * [Nathan Hodnett](https://github.com/nhodnett)
-* [Team Member 3]()
 
 ### Project Manger
-* [Kayla Gordon](https://github.com/
+* [Kayla Gordon](https://github.com/)
 ## Learning Goals
 
-* All:
-
 * Eli Davidson:
+    1. React components.
+    1. Cypress.
+    1. Acync functions.
+    1. Conditonal rendering.
 
 * Nathan Hodnett:
-
-* Team Member 3:
+    1. React component structure.
+    1. Class components vs functional components.
+    1. Cypress testing.
+    1. Router.
 
 ## Project Evolution
->how did the project change over time?
+Origionally, we wanted to create genre carousels on the main page, but ran out of time; so, we removed that idea from the MVP, and plan to add it in a future iteration. 
+
+Also, we changed our component structure as the iterations progressed, from class to function and then back again, as the functionality needs of those components became clear.
 
 ## Project Reflections
 >what didn't work, what did we learn?
 
 * Eli Davidson:
+1. React is all about timing. We learned a lot about watching what informaiton/data was in state during rendering, and how to ensure all data ended up in state by the time the component needed to access it. 
 
 * Nathan Hodnett:
-
-* Team Member 3:
-
+1. Cypress tests were also heavily timing dependent this envolved us adjusting timing / adding wait in order to run the tests successfully.
 ## Extensions
-
-### Not attempted
-### Completed
-
-1.
-2.
-3.
+For this project we chose to complete the "More React Functionality" CYOA. In particular we added search/filtering functionality to the movies.
 
 ### Future Goals
-
+1. Genre based carousels.
+1. Error handle "Youtube video not available" 
+1. Favorites functionality.
+1. Deploy using Heroku.
+1. Responsive CSS for Movie cards.
 ## Organizational Resources
 
 * [Project board](https://github.com/nhodnett/rancid-tomatillos/projects/1)
 * [Figma](https://www.figma.com/file/B5YF2KSCHALrpK1mAkaCVu/Component-architecture?node-id=0%3A1)
 
 ## Set Up
+1. Forking the repo.
+1. Clone down a local copy.
+2. CD into the directory and run npm install. 
+    * This will install the dependencies you need for the project. 
+5. To open the webpage run npm start.
 
-## Operation Instructions
 
-Once in the application you will see many options. Each step will outline a feature you can use.
-
-
-## Application in Action
-
-This is a basic gif demonstration of feature.
-
-## Testing
-
-Cypress
