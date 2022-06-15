@@ -15,6 +15,8 @@ Rancid Tomatillos
 - [Testing](#testing)
 - [Extensions Completed](#extensions-completed)
 
+## Deploy Link
+The application has been deployed to gitHub pages, and can be accessed [here.](https://main.d2u80thcavydjg.amplifyapp.com)
 ## About the Project
 
 Rancid Tomatillos is a web application that allows the user to browse a selection of movies. The user can click on any one of the movies to view more details about that particular movie. The user also has the option of searching for a particular movie by title or genre. Once the user selects a movie, and goes to the movies details page, a trailer automatically loads so they can get a good feel for that movie. 
